@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="import" href="js/server.js"/>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>O Verbo</title>
+  </head>
+  <body>
+    <header>
+      <div id="menu-btn" class="menu-btn">☰</div>
+      <img src="/img/img-logo.png" alt="logo" />
+      <nav>
+        <ul>
+          <li><a href="home.html#home">Início</a></li>
+
+          <li><a href="contato.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <form action="/" method="get" class="barra-pesquisa">
+        <input
+          type="text"
+          placeholder="Buscar"
+          name="q"
+          class="campo-pesquisa"
+        />
+        <button type="submit" class="botao-pesquisa">🔍︎​</button>
+      </form>
+    </header>
+    <div id="sidebar" class="sidebar">
+      <div class="close-btn" id="close-btn">×</div>
+
+      <ul>
+        <li><a href="home.html#home">Início</a></li>
+        <li><a href="noticias.html#noticia">Notícia</a></li>
+        <li><a href="noticia-educacao.html#educacao">Educação</a></li>
+        <li><a href="noticia-esporte.html#esportes">Esportes</a></li>
+        <li><a href="contato.html#contato">Entre em contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Overlay escuro ao abrir o menu -->
+    <div id="overlay" class="overlay"></div>
+
+    <div class="noticias-container">
+    <% noticias.forEach(function(item) { %>
+      <article class="card-noticia">
+        <img
+          src="<%= item.urlToImage || '/img/padrao.jpg' %>"
+          alt="<%= item.title %>"
+          onerror="this.onerror=null;this.src='/img/padrao.jpg'"
+        />
+        <div class="conteudo">
+          <h3><%= item.title %></h3>
+          
+          <p><%= item.description %></p>
+          
+          <a href="<%= item.url %>" target="_blank" class="botao">Ler Completa</a>
+        </div>
+      </article>
+    <% }); %>
+  </div>
+
+    <main>
+      <div class="conteudo">
+        <h1>Bem-vindo ao O Verbo</h1>
+        <p>Seu portal de notícias confiável.</p>
+
+        <div class="cards" id="#noticia">
+          <div class="card">
+            <h3>EXAME NACIONAL</h3>
+            <p>
+              Gabarito do 2º dia de Enem 2025 é divulgado; veja as questões
+              anuladas
+            </p>
+            <img src="/img/enem.jpeg" alt="Caderno Enem" />
+            <a href="noticia-educacao.html#noticia">Veja mais ⭢</a>
+          </div>
+          <div class="card">
+              <h3>ESPORTE</h3>
+              <p>
+                  Quando o Brasil joga de novo? Veja calendário da Seleção até a
+                  Copa
+                </p>
+                <img src="https://agorarn.com.br/files/uploads/2022/12/foto-posada-dos-titulares-da-selecao-brasileira-para-a-partida-contra-a-servia-pela-copa-do-mundo-do-qatar-1669318579141_v2_900x506.jpg" alt="Seleção Brasileira" />
+                <a href="noticia-esporte.html#noticia">Veja mais ⭢</a>
+            </div>
+      </div>
+
+        <div class="cards-menores">
+            <div class="card-menor">
+                <h3>MEIO AMBIENTE</h3>
+                
+                <div class="flex-meio-ambiente">
+                    
+                    <div class="bloco-imagem">
+                        <img src="https://ichef.bbci.co.uk/ace/standard/raw/cpsprodpb/8dd3/live/0d96b6c0-c154-11f0-9c9a-1124134b6598.jpg" alt="Fundo proteger florestas">
+                        
+                    </div>
+        
+                    <div class="bloco-texto">
+                        <p> Como funciona fundo que quer usar lógica do mercado financeiro
+                            para proteger florestas </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+        <div class="cards-menores">
+            <div class="card-menor">
+                <h3>CULTURA</h3>
+                
+                <div class="flex-cultura">
+                    
+                    <div class="bloco-imagem">
+                        <img src="https://s2-g1.glbimg.com/U94atj30rkdYaia_mFTblOu-Jag=/0x0:1024x683/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2025/j/q/FsAe7JSYGzCkdkmDC9mg/ap25321673451452.jpg" alt="Fundo proteger florestas">
+                        
+                    </div>
+        
+                    <div class="bloco-texto">
+                        <p> Ingresso do Louvre vai ficar mais caro para visitantes não europeus; confira </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+        <div class="cards-menores">
+          <div class="card-menor">
+              <h3>ECONOMIA</h3>
+              
+              <div class="flex-economia">
+                  
+                  <div class="bloco-imagem">
+                      <img src="https://cdn.borainvestir.b3.com.br/2024/11/29095440/taxa-de-desemprego-atinge-menor-patamar-desde-2012.webp" alt="Taxa de desemprego"> 
+                  </div>
+      
+                  <div class="bloco-texto">
+                      <p> Taxa de desemprego cai para 5,6%, a menor da série histórica </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="cards-menores">
+      <div class="card-menor">
+          <h3>SAÚDE</h3>
+          
+          <div class="flex-saude">
+              
+              <div class="bloco-imagem">
+                  <img src="https://conteudo.imguol.com.br/c/noticias/bc/2025/11/27/anvisa-determinou-recolhimento-e-suspensao-de-vendas-de-diversos-lotes-de-lava-roupas-da-marca-ype-por-risco-de-contaminacao-por-bacteria-1764262748466_v2_450x337.png" alt="Taxa de desemprego"> 
+              </div>
+  
+              <div class="bloco-texto">
+                  <p> Anvisa determina recolhimento de lotes de sabão líquido Ypê por contaminação; produto capilar também é alvo de ação</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+    
+    </main>
+
+    <footer>
+      <p>Email Redação: redacao@overbo.com.br | CNPJ: 00.000.000/0001-00 | Telefone: (11) 5555-2025</p>
+      <p>© 2025 O Verbo. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const sidebar = document.getElementById("sidebar");
+      const closeBtn = document.getElementById("close-btn");
+      const overlay = document.getElementById("overlay");
+
+      function openMenu() {
+        sidebar.classList.add("open");
+        overlay.classList.add("show");
+      }
+
+      function closeMenu() {
+        sidebar.classList.remove("open");
+        overlay.classList.remove("show");
+      }
+
+      btn.onclick = openMenu;
+      closeBtn.onclick = closeMenu;
+      overlay.onclick = closeMenu;
+    </script>
+  </body>
+</html>

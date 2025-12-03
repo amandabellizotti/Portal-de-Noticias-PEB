@@ -1,0 +1,438 @@
+body {
+  background-color: gainsboro;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: darkred;
+  padding: 10px 30px;
+}
+
+header img {
+  height: 200px;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  text-decoration: none;
+}
+nav ul li {
+  margin: 0 15px;
+  list-style-type: none;
+}
+nav ul li a {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  position: relative; 
+  padding-bottom: 5px;
+  transition: color 0.3s ease-in-out;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+nav ul li a::after {
+  content: ''; 
+    position: absolute;
+    width: 0; /* A linha começa invisível */
+    height: 3px; /* Espessura da linha */
+    bottom: 0; /* Posição: alinhada com a parte de baixo do texto */
+    left: 50%; /* Ponto de partida: centro do link */
+    transform: translateX(-50%);
+    background-color: #ffffff; 
+    transition: width 0.3s ease-in-out;
+}
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.barra-pesquisa {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.campo-pesquisa {
+  padding: 6px;
+  background-color: rgb(105, 2, 2);
+  border: none;
+}
+
+.botao-pesquisa {
+  padding: 6px 10px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar {
+  display: none;
+}
+
+/* Botão hamburguer */
+.menu-btn {
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Sidebar lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background-color: #111;
+  padding-top: 60px;
+  transition: left 0.3s ease;
+  z-index: 1001;
+}
+
+/* Botão fechar */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Itens do menu */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 18px 25px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}
+
+/* Sidebar aberto */
+.sidebar.open {
+  left: 0;
+}
+
+/* Fundo escuro ao abrir */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.overlay.show {
+  display: block;
+}
+
+form {
+  align-items: center;
+}
+.sidebar {
+  display: grid;
+}
+
+main {
+  margin: 50px;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: darkred;
+}
+
+.conteudo h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.conteudo p {
+  font-size: larger;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.cards{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card{
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 500px;
+  text-align: center;
+}
+.card img{
+  width: 450px;
+  border-radius: 15px;
+  padding: 10px;
+}
+.card a{
+  text-decoration: none;
+  color: darkred;
+  font-weight: bold; 
+}
+
+.card-menor {
+  margin-top: 20px;
+  padding: 10px;
+  flex: 1;
+}
+
+.card-menor p {
+  font-size: 18px;
+  color: #555;
+}
+
+.cards-menores{
+  margin: 40px 0;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  gap: 30px;
+}
+
+.card-menor img {
+  display: flex;
+  width: 400px;
+  height: auto;
+  border-radius: 15px; 
+}
+
+.card-menor h3{
+  color: darkblue;
+  margin-left: 140px;
+}
+
+/* ------------------------------------------ */
+/* ESTILO PARA ALINHAR OS CARDS DE NOTÍCIAS LADO A LADO */
+/* ------------------------------------------ */
+
+.noticias-container {
+  display: flex; /* Habilita o layout Flexbox */
+  flex-wrap: wrap; /* Permite que os cards quebrem para a linha de baixo se não houver espaço */
+  justify-content: center; /* Centraliza os cards no meio da tela */
+  gap: 30px; /* Adiciona um espaço entre os cards */
+  padding: 20px;
+  margin: 50px auto; /* Centraliza o container na página */
+  max-width: 1400px; /* Limita a largura para melhor visualização */
+}
+
+/* Ajuste no card-noticia para caber dois ou três por linha */
+.card-noticia {
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+padding: 20px;
+/* Removendo a margem grande e o width fixo para o Flexbox funcionar melhor */
+/* margin: 20px; */ 
+width: 400px; /* Largura um pouco menor para caber mais */
+text-align: center;
+}
+
+/* Ajuste para a imagem dentro dos cards de notícia gerados pelo EJS */
+.card-noticia img {
+width: 100%; /* Faz a imagem ocupar 100% da largura do card-noticia */
+max-width: 400px;
+height: auto;
+border-radius: 15px;
+padding: 0; /* Remove o padding que estava no CSS global do card/article */
+}
+
+/* meio ambiente: 1. ESTILO PARA ALINHAR IMAGEM E TEXTO LADO A LADO */
+.flex-meio-ambiente {
+  display: flex;         /* Habilita o layout lado a lado */
+  align-items: flex-start; /* Alinha os itens pelo topo, como na imagem de exemplo */
+  gap: 20px;             /* Espaçamento entre a imagem e o texto */
+  margin-top: 20px;
+}
+
+.flex-meio-ambiente .bloco-imagem {
+  margin-bottom: 20px;
+  flex: 0 0 45%; /* Define uma largura fixa para a imagem e impede que ela encolha (ajuste 45% se necessário) */
+  text-align: center;
+}
+
+/* 3. ESTILO PARA O TEXTO */
+.flex-meio-ambiente p {
+  flex: 1;
+  width: 500px;
+  color: darkred;
+  text-align: left; /* Alinha o texto à esquerda */
+  margin-top: 50px; /* Remove a margem superior padrão do <p> */
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold; /* Deixa o texto em destaque */
+  line-height: 1.5;
+}
+
+.flex-meio-ambiente .bloco-imagem img {
+  margin-left: 140px;
+  width: 500px;
+  height: auto;
+  border-radius: 15px; 
+  padding: 0;
+}
+
+.card-menor h3{
+  color: darkblue;
+  margin-left: 140px;
+}
+/* cultura: 1. ESTILO PARA ALINHAR IMAGEM E TEXTO LADO A LADO */
+.flex-cultura{
+  display: flex;         /* Habilita o layout lado a lado */
+  align-items: flex-start; /* Alinha os itens pelo topo, como na imagem de exemplo */
+  gap: 20px;             /* Espaçamento entre a imagem e o texto */
+  margin-top: 20px;
+}
+
+.flex-cultura .bloco-imagem {
+  margin-bottom: 20px;
+  flex: 0 0 45%; /* Define uma largura fixa para a imagem e impede que ela encolha (ajuste 45% se necessário) */
+  text-align: center;
+}
+
+/* 3. ESTILO PARA O TEXTO */
+.flex-cultura p {
+  flex: 1;
+  width: 500px;
+  color: darkred;
+  text-align: left; /* Alinha o texto à esquerda */
+  margin-top: 120px; /* Remove a margem superior padrão do <p> */
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold; /* Deixa o texto em destaque */
+  line-height: 1.5;
+}
+
+.flex-cultura .bloco-imagem img {
+  margin-left: 140px;
+  width: 500px;
+  height: auto;
+  border-radius: 15px; 
+  padding: 0;
+}
+
+
+
+/*  economia : 1. ESTILO PARA ALINHAR IMAGEM E TEXTO LADO A LADO */
+.flex-economia{
+  display: flex;         /* Habilita o layout lado a lado */
+  align-items: flex-start; /* Alinha os itens pelo topo, como na imagem de exemplo */
+  gap: 20px;             /* Espaçamento entre a imagem e o texto */
+  margin-top: 20px;
+}
+
+.flex-economia .bloco-imagem {
+  margin-bottom: 20px;
+  flex: 0 0 45%; /* Define uma largura fixa para a imagem e impede que ela encolha (ajuste 45% se necessário) */
+  text-align: center;
+}
+
+/* 3. ESTILO PARA O TEXTO */
+.flex-economia p {
+  flex: 1;
+  width: 500px;
+  color: darkred;
+  text-align: left; /* Alinha o texto à esquerda */
+  margin-top: 100px; /* Remove a margem superior padrão do <p> */
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold; /* Deixa o texto em destaque */
+  line-height: 1.5;
+}
+
+.flex-economia .bloco-imagem img {
+  margin-left: 140px;
+  width: 500px;
+  height: auto;
+  border-radius: 15px; 
+  padding: 0;
+}
+
+
+/*  saude : 1. ESTILO PARA ALINHAR IMAGEM E TEXTO LADO A LADO */
+.flex-saude{
+  display: flex;         /* Habilita o layout lado a lado */
+  align-items: flex-start; /* Alinha os itens pelo topo, como na imagem de exemplo */
+  gap: 20px;             /* Espaçamento entre a imagem e o texto */
+  margin-top: 20px;
+}
+
+.flex-saude .bloco-imagem {
+  margin-bottom: 20px;
+  flex: 0 0 45%; /* Define uma largura fixa para a imagem e impede que ela encolha (ajuste 45% se necessário) */
+  text-align: center;
+}
+
+/* 3. ESTILO PARA O TEXTO */
+.flex-saude p {
+  flex: 1;
+  width: 500px;
+  color: darkred;
+  text-align: left; /* Alinha o texto à esquerda */
+  margin-top: 100px; /* Remove a margem superior padrão do <p> */
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold; /* Deixa o texto em destaque */
+  line-height: 1.5;
+}
+
+.flex-saude .bloco-imagem img {
+  margin-left: 140px;
+  width: 500px;
+  height: auto;
+  border-radius: 15px; 
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: darkred;
+  color: #eceff1;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+footer p {
+  margin: 5px 0;
+}
+
